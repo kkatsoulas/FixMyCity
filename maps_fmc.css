@@ -1,0 +1,124 @@
+﻿
+#mapContainer{
+    height: 550px;
+}
+#stoixeia-katagrafis-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 550px;
+    width: 100%;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+#legend {
+    font-size: 14px;
+    background: #43c5f7;
+    color:#fff;
+    text-align:center;
+    font-size:17px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 10px #666;
+    white-space: nowrap;
+    width: 250px;
+}
+
+    #legend .row {
+        height: 35px;
+    }
+
+    #legend hr {
+        height: 4px;
+        padding: 0px;
+        margin: 5px;
+    }
+    #mapContainer{
+        height: 550px!important;
+        padding-right: 10px;
+    }
+
+.submit-container {
+    padding:0px 0px 0px 0px;
+}
+.form-placement {
+    padding: 20px;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #444;
+}
+.form-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form-group button {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.input-sm, select.input-sm {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 45px;
+    font-size: 12px;
+}
+
+@media (max-width:678px){
+    footer{
+        text-align:center;
+    }
+}
+
+nav{
+    background: #fff;
+}
+
+.footer-right-side{
+    text-align: right;
+}
+
+@media (max-width: 992px) {
+    nav.navbar.bootsnav .navbar-brand {
+        display: inline-block;
+        float: none !important;
+        margin: 0px 30px !important;
+    }
+
+    .footer-right-side {
+        text-align: center;
+    }
+    nav.navbar .navbar-brand img.logo {
+        width: 40%!important;
+    }
+}
+body {
+    font-family: 'Roboto' !important;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+.contain-wrapp .container .row .title-head {
+    margin-top: 60px;
+}
+
+#first_title {
+    margin-top: 0px;
+}
+
+.text-slight-larger {
+    font-size: 1.2em;
+}
+
+.title-head {
+    color: #3399cc;
+}
+
+#address_container{
+    font-size: 11px;
+}

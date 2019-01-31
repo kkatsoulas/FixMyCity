@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sync Fusion Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="//cdn.syncfusion.com/js/assets/external/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script src="../lib/jquery/dist/jquery.js"></script>
+    <!--<![endif]-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+	<script src="../jsonfile.js"></script>
+	<script src="../lib/syncfusion-javascript/Scripts/ej/web/ej.web.all.min.js"></script>
+	<script src="../lib/jsrender/jsrender.js"></script>	
+	<script src="../lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="../lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+	<script src="../lib/bootstrap/dist/js/bootstrap.js"></script>
+	<link href="https://cdn.syncfusion.com/16.3.0.21/js/web/responsive-css/ej.responsive.css" rel="stylesheet" />
+	<!-- <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+	
+</head>
+<body>
+    <div class="content-container-fluid">
+        <div class="row">
+            <div class="cols-sample-area">
+                <div id="Grid"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+       /* $(function () {
+            $("#Grid").ejGrid({
+                // the datasource "window.gridData" is referred from jsondata.min.js
+                dataSource: window.gridData,
+                allowPaging: true,  
+			//allowSorting: true,
+			isResponsive: true,
+			//allowFiltering: true,
+			//filterSettings: {
+			//    filterType: "menu"
+			//},
+			allowResizeToFit: true,
+			//toolbarSettings: {
+			//	showToolbar: true,
+			//	toolbarItems: ["add","edit", "update", "cancel"],
+			//},
+			//editSettings: {
+			//	allowEditing: true, allowAdding: true, allowDeleting: true, editMode: "dialog"
+			//},				
+                columns: [
+                        { field: "RequestID", isPrimaryKey: true, headerText: "Request ID", textAlign: ej.TextAlign.Right, validationRules: { required: true, number: true }, width: 50 },
+                        { field: "RequestDate", headerText: 'RequestDate', validationRules: { required: true, minlength: 3 }, width: 90 },
+                        { field: "Category", headerText: 'Category', editType: ej.Grid.EditingType.Dropdown, textAlign: ej.TextAlign.Right, width: 80 },
+                        { field: "SubCategory", headerText: 'SubCategory', textAlign: ej.TextAlign.Right, width: 80 },
+                        { field: "Address", headerText: 'Address', width: 150 },
+                        { field: "Status", headerText: 'Status', editType: ej.Grid.EditingType.Dropdown, width: 90 }
+                ]
+            });
+        });*/
+    </script>
+</body>
+</html>

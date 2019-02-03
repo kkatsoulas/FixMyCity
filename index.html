@@ -21,40 +21,15 @@
     </script>
 	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
 	<script src="firebase.js"></script>
-		
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing-1.3.min.js"></script>
 
-	<script src="js/maps_functions_fmc.js" ></script>
-	<script src="js/bootsnav.js"></script>
-
-	<script src="js/parallax/jquery.parallax-1.1.3.js"></script>
-	<script src="js/parallax/setting.js"></script>
-	<script src="js/flexslider/jquery.flexslider-min.js"></script>
-	<script src="js/flexslider/setting.js"></script>
-	<script src="js/legends_fmc.js"></script>
-    <script src="layerslider/js/greensock.js"></script>
-    <script src="layerslider/js/layerslider.transitions.js"></script>
-    <script src="layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-    <script src="js/pgm_ajax.js"></script>
 	
 	
     <!--<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJxP8aoy2vg16BrnlszY7dsiypZ7pB84&libraries=geometry,places&language=el&callback=_initMap'></script>-->
     
     
-	<script src="js/custom.js"></script>
-	<!-- Rendering SyncFusion -- Start -->
-	<link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
-	<script src="lib/jquery/dist/jquery.js"></script>
-	<script src="lib/syncfusion-javascript/Scripts/ej/web/ej.web.all.min.js"></script>
-	<script src="lib/jsrender/jsrender.js"></script>	
-	<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-	<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-	<link href="https://cdn.syncfusion.com/16.3.0.21/js/web/responsive-css/ej.responsive.css" rel="stylesheet" />
 
-	<!-- Rendering SyncFusion -- End-->
+
     <style>
        
     #description {
@@ -210,7 +185,8 @@
 			<div class="row" id="short_descr">
 				<div class="col-md-6 col-sm-6">
 					<h5 class="title-head" id="first_title">Τα Στατιστικά μου</h5>
-					<table class="parameter-product">
+					<div id="myTable">
+										<table class="parameter-product">
 						<tr class="active">
 							<td><strong>Ενεργός Από</strong></td>
 							<td>01/05/2016</td>
@@ -240,6 +216,7 @@
 							<td>30</td>
                         </tr>
 					</table>
+					</div>
 				</div>
 
 			</div>
@@ -416,9 +393,41 @@
 	<a href="#" class="toTop">
 		<i class="fa fa-chevron-up"></i>
 	</a>
-
-	<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHoCTp3CGNODqzM8H8L9dTBBFtF55Em4&libraries=geometry,places&language=el&callback=_initMap'></script>
 	
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootsnav.js"></script>
+
+	
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzsMZ4nc_IQ2xDTP5joX3E87phsuSNGDU&callback=_initMap"
+  type="text/javascript"></script>-->
+  
+  
+  	<!-- Rendering SyncFusion -- Start -->
+	<link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/syncfusion-javascript/Scripts/ej/web/ej.web.all.min.js"></script>
+	<script src="lib/jsrender/jsrender.js"></script>	
+	<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<link href="https://cdn.syncfusion.com/16.3.0.21/js/web/responsive-css/ej.responsive.css" rel="stylesheet" />
+
+	<!-- Rendering SyncFusion -- End-->
+	<script src="js/maps_functions_fmc.js" ></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHoCTp3CGNODqzM8H8L9dTBBFtF55Em4&libraries=geometry,places&language=el&callback=_initMap"></script>
+	<script src="js/jquery.easing-1.3.min.js"></script>
+	<script src="js/parallax/jquery.parallax-1.1.3.js"></script>
+	<script src="js/parallax/setting.js"></script>
+	<script src="js/flexslider/jquery.flexslider-min.js"></script>
+	<script src="js/flexslider/setting.js"></script>
+	<script src="js/legends_fmc.js"></script>
+    <script src="layerslider/js/greensock.js"></script>
+    <script src="layerslider/js/layerslider.transitions.js"></script>
+    <script src="layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+    <script src="js/pgm_ajax.js"></script>
+	
+	
+	<script src="js/custom.js"></script>
 	<script>
         $('body').on('myMapsLoaded', function () {
             initMap();

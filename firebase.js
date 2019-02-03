@@ -53,6 +53,7 @@
 		//firebase.database.enableLogging(true);
 
 		//firebase.auth.Auth.Persistence.LOCAL;
+	  
 	  app.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 	
 	  app.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function() {
@@ -77,15 +78,18 @@
           //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           if (!emailVerified) {
             //document.getElementById('quickstart-verify-email').disabled = false;
+			  displayTable('block');
           }else{
 			  GetAll();
+			  displayTable('allow');
 		  }
 		  
           // [END_EXCLUDE]
-        } else {
+        }	 else {
           // User is signed out.
           // [START_EXCLUDE]
 		  global_user = null;
+		  displayTable('block');
           //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           //document.getElementById('quickstart-sign-in').textContent = 'Sign in';
           //document.getElementById('quickstart-account-details').textContent = 'null';
@@ -272,6 +276,11 @@
 				if (childData["SubCategory"] === undefined){ gridLine["SubCategory"] = '';}
 				else{ gridLine["SubCategory"] = childData["SubCategory"]; }
 				
+				if (childData["Address"] === undefined){ gridLine["Address"] = '';}
+				else{ gridLine["Address"] = childData["Address"]; }
+				
+				if (childData["Status"] === undefined){ gridLine["Status"] = '';}
+				else{ gridLine["Status"] = childData["Status"]; }
 				data_t.push( gridLine);
 			 
 			//}
@@ -311,6 +320,15 @@
 
 }
 
+  function displayTable(y){
+	var x = document.getElementById("myTable");
+	if( y == 'block'){
+		x.style.display = "block";
+		x.style.visibility = "hidden";
+		}else{x.style.display = "";
+		x.style.visibility = "none";}
+	//if (x.style.display === "none") {} 
+  }
 
 
 

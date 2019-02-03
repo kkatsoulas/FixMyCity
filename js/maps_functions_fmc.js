@@ -748,13 +748,16 @@ function confirmUpload() {
 			var day = dayObj.getDate();
 
 
-			dbObjRef.child(routeName).push({
+			dbObjRef.child(PostsRootName).push({
 			CreatedBy: global_user.uid,
 			//Points: totalPoints[0],
 			lat: marker.getPosition().lat(),
 			lng: marker.getPosition().lng(),
 			ImageURL: URL,
-			Story: $('#fmc_comment').val()
+			Category: $('#fmc_category').val(),
+			SubCategory: $('#subcategory' + $('#fmc_category').val()).val(),
+			Story: $('#fmc_comment').val(),
+			Status: 'ΚΑΤΑΧΩΡΗΘΗΚΕ'
 			});
 
 			console.log('User post successfully added to realtime database');
@@ -767,5 +770,100 @@ function confirmUpload() {
 		//ConvertMarkerPreview();
 
 		});
+
+}
+
+
+	function GetAll() {
+
+
+	var myObj = new Object();
+
+	routeRef2.once("value")
+	  .then(function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			var key = childSnapshot.key;
+			var childData = childSnapshot.val();
+			//if(childData.CreatedBy == global_user.uid ) {
+			  //alert(JSON.stringify(childData));
+
+				var pos1lat = childData.lat;
+				var pos1lng = childData.lng;
+				var MapMarkerPosObj = new google.maps.LatLng(pos1lat,pos1lng);
+				params = childData;
+				placeDbMarker(MapMarkerPosObj);
+				var gridLine = {
+							  RequestID:"",
+							  RequestDate:"",
+							  Category:"",
+							  SubCategory:"",
+							  Address:"",
+							  Status:""
+							};
+							
+				if (childData["RequestID"] === undefined){
+					gridLine["RequestID"] = '';}
+				else{
+					gridLine["RequestID"] = childData["Category"];}
+					
+				if (childData["RequestDate"] === undefined){
+					gridLine["RequestDate"] = '';}
+				else{
+					var date_txt = childData["RequestDate"];//12/01/2019
+					/*var yyyy = date_txt.substring(5, 10);
+					var mm = date_txt.substring(3, 5);
+					var dd = date_txt.substring(0, 2);
+					var date = new Date(dd, mm, yyyy);*/
+					
+					gridLine["RequestDate"] = date_txt;
+				}
+				
+				if (childData["Category"] === undefined){ gridLine["Category"] = '';}
+				else{ gridLine["Category"] = childData["Category"]; }
+				
+				if (childData["SubCategory"] === undefined){ gridLine["SubCategory"] = '';}
+				else{ gridLine["SubCategory"] = childData["SubCategory"]; }
+				
+				if (childData["Address"] === undefined){ gridLine["Address"] = '';}
+				else{ gridLine["Address"] = childData["Address"]; }
+				
+				if (childData["Status"] === undefined){ gridLine["Status"] = '';}
+				else{ gridLine["Status"] = childData["Status"]; }
+				data_t.push( gridLine);
+			 
+			//}
+
+	  });
+	  window.gridData = data_t;
+	  $(function () {
+            $("#Grid").ejGrid({
+                // the datasource "window.gridData" is referred from jsondata.min.js
+                dataSource: window.gridData,
+                allowPaging: true,  
+			//allowSorting: true,
+			isResponsive: true,
+			//allowFiltering: true,
+			//filterSettings: {
+			//    filterType: "menu"
+			//},
+			allowResizeToFit: true,
+			//toolbarSettings: {
+			//	showToolbar: true,
+			//	toolbarItems: ["add","edit", "update", "cancel"],
+			//},
+			//editSettings: {
+			//	allowEditing: true, allowAdding: true, allowDeleting: true, editMode: "dialog"
+			//},				
+                columns: [
+                        { field: "RequestID", isPrimaryKey: true, headerText: "Request ID", textAlign: ej.TextAlign.Right, validationRules: { required: true, number: true }, width: 50 },
+                        { field: "RequestDate", headerText: 'RequestDate', format: "{0:dd/MM/yyyy}", validationRules: { required: true, minlength: 3 }, width: 90 },
+                        { field: "Category", headerText: 'Category', editType: ej.Grid.EditingType.Dropdown, textAlign: ej.TextAlign.Right, width: 80 },
+                        { field: "SubCategory", headerText: 'SubCategory', textAlign: ej.TextAlign.Right, width: 80 },
+                        { field: "Address", headerText: 'Address', width: 150 },
+                        { field: "Status", headerText: 'Status', editType: ej.Grid.EditingType.Dropdown, width: 90 }
+                ]
+            });
+        });
+	});
 
 }

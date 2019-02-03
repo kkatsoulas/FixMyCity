@@ -38,8 +38,9 @@ function GetAll() {
 
 				var pos1lat = childData.lat;
 				var pos1lng = childData.lng;
-				
+				var MapMarkerPosObj = new google.maps.LatLng(pos1lat,pos1lng);
 				params = childData;
+				placeMarker(MapMarkerPosObj);
 				
 				var gridLine = {
 							  RequestID:"",

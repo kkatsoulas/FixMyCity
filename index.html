@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html class="no-js" lang="en">
 <head>
@@ -20,6 +19,42 @@
     <script>
         var api_url = 'http://glyfada.intelligentcity.gr/icityops/api.php';
     </script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+	<script src="firebase.js"></script>
+		
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing-1.3.min.js"></script>
+
+	<script src="js/maps_functions_fmc.js" ></script>
+	<script src="js/bootsnav.js"></script>
+
+	<script src="js/parallax/jquery.parallax-1.1.3.js"></script>
+	<script src="js/parallax/setting.js"></script>
+	<script src="js/flexslider/jquery.flexslider-min.js"></script>
+	<script src="js/flexslider/setting.js"></script>
+	<script src="js/legends_fmc.js"></script>
+    <script src="layerslider/js/greensock.js"></script>
+    <script src="layerslider/js/layerslider.transitions.js"></script>
+    <script src="layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+    <script src="js/pgm_ajax.js"></script>
+	
+	
+    <!--<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJxP8aoy2vg16BrnlszY7dsiypZ7pB84&libraries=geometry,places&language=el&callback=_initMap'></script>-->
+    
+    
+	<script src="js/custom.js"></script>
+	<!-- Rendering SyncFusion -- Start -->
+	<link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/syncfusion-javascript/Scripts/ej/web/ej.web.all.min.js"></script>
+	<script src="lib/jsrender/jsrender.js"></script>	
+	<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<link href="https://cdn.syncfusion.com/16.3.0.21/js/web/responsive-css/ej.responsive.css" rel="stylesheet" />
+
+	<!-- Rendering SyncFusion -- End-->
     <style>
        
     #description {
@@ -127,7 +162,7 @@
 					<i class="fa fa-bars"></i>
                 </button>
                 
-				<a class="navbar-brand" href="#brand"><img src="logo.png" class="logo" alt="" style="width: 20%"></a>
+				<!--<a class="navbar-brand" href="#brand"><img src="logo.png" class="logo" alt="" style="width: 20%"></a>-->
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-menu">
 				
@@ -165,94 +200,7 @@
 	
 	<div class="clearfix"></div>-->
     <div id="slider-wrapper" style="margin-top:10px;">
-        <!--<div id="layerslider" style="width:100%;height:770px;">
-            
-            <div class="ls-slide " data-ls="slidedelay:8000;transition2d:94,95;">
-                <img src="bannerbg_new.png" class="ls-bg" alt="Slide background 1" />
-                <h5 class="ls-l headline1"
-                    style="top:150px;left:77%;font-size:40px;color:#335a94;text-align:left!important;"
-                    data-ls="offsetxin:400;
-					durationin:1000;
-					delayin:600;
-					durationout:0;
-					offsetxout:400;">
-                    <img src="img/tik.png" style="width:35px;" class="hidden-sm hidden-xs"/>
-                    FixMyCity
-                </h5>
-                <p class="ls-l "
-                    style="top:250px;left:80%;font-size:19px;color:#fff;text-shadow:1px 1px #777;text-align:left; letter-spacing:1px;"
-                    data-ls="offsetxin:400;
-					durationin:1000;
-					delayin:1100;
-					durationout:0;
-					offsetxout:400;">
-                    Ένας σπουδαίος τρόπος να αναφέρεις τα <br />προβλήματα της γειτονιάς σου στο δήμο μας.
-                </p>
-                <p class="ls-l "
-                   style="top:320px;left:80%;font-size:19px;color:#f83;text-shadow:1px 1px #777;text-align:left; letter-spacing:1px;"
-                   data-ls="offsetxin:400;
-					durationin:1600;
-					delayin:1000;
-					durationout:0;
-					offsetxout:400;">
-                    Χρησιμοποίησε το κινητό σου ή τον <br />υπολογιστή σου και ενημέρωσε το δήμο για<br />το πρόβλημα
-                </p>
-                <p class="ls-l hidden-sm hidden-xs"
-                    style="top:400px;left:71%;font-size:16px;text-align:left!important;"
-                    data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2100;
-					durationout:0;
-					offsetxout:400;">
-                    <img src="img/rb.png" style="width:35px;" />
-                </p>
-                <p class="ls-l hidden-sm hidden-xs"
-                   style="top:480px;left:71%;font-size:16px;text-align:left!important;"
-                   data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2500;
-					durationout:0;
-					offsetxout:400;">
-                    <img src="img/rb.png" style="width:35px;" />
-                </p>
-                <p class="ls-l hidden-sm hidden-xs"
-                   style="top:560px;left:71%;font-size:16px;text-align:left!important;"
-                   data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2900;
-					durationout:0;
-					offsetxout:400;">
-                    <img src="img/rb.png" style="width:35px;" />
-                </p>
-                <p class="ls-l "
-                   style="top:400px;left:82%;font-size:19px;text-align:left!important;color:#fff;"
-                   data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2100;
-					durationout:0;
-					offsetxout:400;">
-                    <a href="#" style="color:#445369;" onclick="scrollToReq()">Στείλε</a> ηλεκτρονικά μία αίτηση για <br /> βλάβη
-                </p>
-                <p class="ls-l  "
-                   style="top:480px;left:82%;font-size:19px;text-align:left!important;color:#fff;"
-                   data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2500;
-					durationout:0;
-					offsetxout:400;">
-                    <a href="http://glyfada.intelligentcity.gr/icityops/?sID=5" style="color:#445369;">Παρακολούθησε</a> την εξέλιξη της<br /> αίτησής σου
-                </p>
-                <p class="ls-l "
-                   style="top:560px;left:82%;font-size:19px;text-align:left!important;color:#fff;"
-                   data-ls="offsetxin:400;
-					durationin:1200;
-					delayin:2900;
-					durationout:0;
-					offsetxout:400;">
-                    <span style="color:#445369;">Δες</span> τα σημεία ενδιαφέροντος του<br /> δήμου σου
-                </p>
-            </div>
-        </div>-->
+
     </div>
     
 	<div class="contain-wrapp padding-bot40" id="citizen">
@@ -293,48 +241,7 @@
                         </tr>
 					</table>
 				</div>
-				<!--<div class="col-md-8 col-sm-8">
-					<h5 class="title-head" id="first_title">Το FixMyCity με μία ματιά</h5>
-                    <p>
-                        Το FixMyCity είναι μια διαδικτυακή εφαρμογή μέσω της οποίας είναι δυνατή η ηλεκτρονική 
-                        υποβολή αιτημάτων από τους πολίτες και η ταυτόχρονη διαχείριση των αιτημάτων αυτών από τις 
-                        αντίστοιχες υπηρεσίες του δήμου. Η εφαρμογή είναι πλήρως παραμετροποιήσιμη, διαθέτει πλήθος 
-                        επιπέδων χρηστών και έχει την δυνατότητα προσαρμογής σε οποιαδήποτε ροή εργασίας διαθέτει ένας 
-                        δήμος. Παράλληλα, διαθέτει πλήθος αναφορών και ενσωματωμένο Business Intelligence System για την 
-                        εξαγωγή ποιοτικών συμπερασμάτων.
-                    </p>
-                    
-                    <a href="fixmycity.pdf" target="_blank" class="btn btn-primary btn-icon btn-sm">
-                        FixMyCity <i class="fa fa-download"></i>
-                    </a>
-                   
-				</div>
-				<div class="col-md-4 col-sm-4">
-                    <br><br>
-					<table class="parameter-product">
-                       
-						<tr class="active">
-							<td><strong>Κωδικός</strong></td>
-							<td>SOFTEVOFMC</td>
-                        </tr>
-                        <tr class="">
-							<td><strong>Όνομα</strong></td>
-							<td>FixMyCity</td>
-                        </tr>
-						<tr class="active">
-							<td><strong>Τρέχουσα Έκδοση</strong></td>
-							<td>v3.0</td>
-                        </tr>
-                        <tr class="">
-							<td><strong>Πρώτη Έκδοση</strong></td>
-							<td>2014</td>
-                        </tr>
-                        <tr class="active">
-							<td><strong>Ανάπτυξη</strong></td>
-							<td>Evolution Projects</td>
-                        </tr>
-					</table>
-				</div>-->
+
 			</div>
         
             <div class="row" id="request_submission">
@@ -343,74 +250,7 @@
                     
                 </div>
             </div>
-            <!--<div class="row marginbot50">
-               
-                <div class="col-md-4">
-                    <div class="precess-column">
-                        <div class="icons-wrapp">
-                            <h5 class="count">1</h5>
-                            <i class="precess-icons fa fa-desktop"></i>
-                        </div>
-                        <h5>Σταθερός Υπολογιστής</h5>
-                        <p>
-                            Μπορείτε να υποβάλλετε ένα αίτημα άμεσα και χωρίς εγγραφή χρήστη, στην παρούσα ιστοσελίδα. 
-                            Δεν έχετε παρά στον παρακάτω χάρτη να εντοπίσετε με αριστερό "κλικ" την θέση σας και στην 
-                            συνέχεια να συμπληρώσετε τα στοιχεία στην αριστερή πλευρά της οθόνης
-                        </p>
-                        
-                        <a href="#" onclick="scrollToReq();" class="btn-primary btn btn-lg scroll-btn">
-                            Υποβολή Αιτήματος
-                        </a>
-                        
-                    </div>
-                </div>
 
-                <div class="col-md-4">
-                    <div class="precess-column">
-                        <div class="icons-wrapp">
-                            <h5 class="count">2</h5>
-                            <i class="precess-icons fa fa-mobile"></i>
-                        </div>
-                        <h5>Εφαρμογή Smartphone</h5>
-                        <p>
-                            Μπορείτε να υποβάλλετε ένα αίτημα άμεσα και χωρίς εγγραφή χρήστη, μέσω της εφαρμογής που διατίθεται 
-                            δωρεάν στο App Store και στο Google Play. Δεν έχετε παρά να κατεβάσετε την εφαρμογή στο smart phone 
-                            σας και να ξεκινήσετε την διαδικασία. Το σύστημα εντοπίζει αυτόματα την θέση σας, μέσω του GPS του 
-                            κινητού σας
-                        </p>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="buttonappstore"><img src="ios.png" width="100%"></a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="buttongoogleplay"><img src="android.png" width="100%"></a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="precess-column">
-                        <div class="icons-wrapp">
-                            <h5 class="count">3</h5>
-                            <i class="precess-icons fa fa-phone"></i>
-                        </div>
-                        <h5>Σταθερό Τηλέφωνο</h5>
-                        <p>
-                        Μπορείτε να υποβάλλετε ένα αίτημα μέσω τηλεφώνου, στην περίπτωση που δεν έχετε πρόσβαση στο διαδίκτυο 
-                        ή δυνατότητα χρήσης της εφαρμογής μέσω smart phone. Το τμήμα διαχείρισης αιτημάτων του δήμου μας είναι 
-                        έτοιμο να σας εξυπηρετήσει τις εργάσιμες ημέρες από τις 8:00 έως τις 16:00.
-                        </p>
-                        
-                        <a href="tel://15464" class="btn-primary btn btn-lg scroll-btn">
-                            15464
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>-->
            					
 			<div class="clearfix" id="request_section">
 			<div class="row ">
@@ -468,97 +308,7 @@
 					</div>
 				</div>
 			</div>
-			<!--<div class="col-md-12">
-					<table class="parameter-product">
-						<tr class="active">
-							<td><strong>Αρ.αιτήματος</strong></td>
-							<td><strong>Ημ/νία αιτήματος</strong></td>
-							<td><strong>Κατηγορία</strong></td>
-							<td><strong>Υποκατηγορία</strong></td>
-							<td><strong>Περιοχή</strong></td>
-							<td><strong>Κατάσταση</strong></td>
-                        </tr>
-						<tr class="">
-							<td>2018011501</td>
-							<td>12/01/2018</td>
-							<td>ΦΩΤΙΣΜΟΣ</td>
-							<td>Καμμένος Λαμπτήρας</td>
-							<td>Βερναρδάκη 16</td>
-							<td>Επιλύθηκε</td>
-                        </tr>
-						<tr class="">
-							<td>2018011502</td>
-							<td>14/01/2018</td>
-							<td>ΔΡΟΜΟΙ</td>
-							<td>Λακκούβα</td>
-							<td>Ιπποκράτους 12</td>
-							<td>Σε αναμονή</td>
-                        </tr>
-						<tr class="">
-							<td>2018011503</td>
-							<td>15/01/2018</td>
-							<td>ΠΑΙΔΙΚΕΣ ΧΑΡΕΣ</td>
-							<td>Ελλειπης Φωτισμός</td>
-							<td>Ελ.Βενιζέλου 8</td>
-							<td>Σε αναμονή</td>
-                        </tr>
-						<tr class="">
-							<td>2018011504</td>
-							<td>16/01/2018</td>
-							<td>ΠΕΖΟΔΡΟΜΙΑ</td>
-							<td>Ολισθηρό Έδαφος</td>
-							<td>Καζαντζάκη 2</td>
-							<td>Υποβλήθηκε</td>
-                        </tr>
-					</table>
-				</div>-->
-            <!--<div class="row" >
-                <div class="col-md-12">
-                    <ul class="icon-box">
-                    
-                        <li>
-                            <i class="fa fa-desktop"></i>
-                            <h5>Σταθερός Υπολογιστής</h5>
-                            <p>
-                                Επισκεφθείτε τον παρακάτω σύνδεσμο, εισάγετε το όνομα και τον κωδικό χρήστη που λάβατε με ηλεκτρονικό ταχυδρομείο 
-                                όταν υποβάλατε το αίτημά σας και ελέγξτε την κατάσταση που βρίσκεται το αίτημα αυτό
-                            </p>
-                            
-                            <a href="http://glyfada.intelligentcity.gr/icityops/?sID=5" target="_blank" class="btn btn-yellow">Σύνδεση</a>
 
-                        </li>
-                        <li>
-                            <i class="fa fa-mobile"></i>
-                            <h5>Εφαρμογή Smartphone</h5>
-                            <p>
-                                Επισκεφθείτε την εφαρμογή που έχετε εγκαταστήσει στο smart phone σας, επιλέξτε "παρακολούθηση αιτήματος", 
-                                εισάγετε το όνομα και τον κωδικό χρήστη που λάβατε με ηλεκτρονικό ταχυδρομείο όταν υποβάλατε το αίτημά σας 
-                                και ελέγξτε την κατάσταση του
-                            </p>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a href="buttonappstore"><img src="ios.png" width="100%"></a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="buttongoogleplay"><img src="android.png" width="100%"></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <h5>Σταθερό Τηλέφωνο</h5>
-                            <p>
-                                Καλέστε στο τμήμα διαχείρισης αιτημάτων, δώστε το όνομά σας και ενημερωθείτε άμεσα για την πορεία διεκπεραίωσης 
-                                του αιτήματός σας
-                            </p>
-                            
-                            <a href="tel://15464" target="_blank" class="btn btn-yellow">15464</a>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
             
 		</div>
 	</div>
@@ -570,7 +320,7 @@
                 <div class="modal-header">
                     <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <button type="button" class="close pull-right" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <img src="logo.png" width="100px" />
+                        <!--<img src="logo.png" width="100px" />-->
                     </div>
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <h5 class="modal-title text-center"> Στοιχεία Αιτήματος</h5>
@@ -663,77 +413,11 @@
     </div>
 	
 	
-	<!--<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-	<div class="col-lg-6" id="uploadDiv">
-
-        <h2>Login</h2>
-		<input  type="text" id="email" name="email" placeholder="Email"/>
-          <input  type="password" id="password" name="password" placeholder="Password"/>
-          <br/><br/>
-          <button id="quickstart-sign-in" name="signin">Sign In</button>
-          &nbsp;&nbsp;&nbsp;
-          <button  id="quickstart-sign-up" name="signup">Sign Up</button>
-          &nbsp;&nbsp;&nbsp;
-          <button  disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-          &nbsp;&nbsp;&nbsp;
-          <button  id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-
-          <div disabled class="quickstart-user-details-container">
-            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-            <div>Firebase auth <code>currentUser</code> object value:</div>
-            <pre><code disabled id="quickstart-account-details">null</code></pre>
-          </div>
-      </div>
-	  </div>
-	</div>
-  </div>-->
-	
-	<!--<div class="row" style="padding-top: 40px;">
-            
-        <div class="col-md-12 text-center">
-            <img src="logo_cc.png" width="50%">
-        </div>
-        
-    </div>-->
 	<a href="#" class="toTop">
 		<i class="fa fa-chevron-up"></i>
 	</a>
-	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing-1.3.min.js"></script>
 
-
-	<script src="js/bootsnav.js"></script>
-
-	<script src="js/parallax/jquery.parallax-1.1.3.js"></script>
-	<script src="js/parallax/setting.js"></script>
-	<script src="js/flexslider/jquery.flexslider-min.js"></script>
-	<script src="js/flexslider/setting.js"></script>
-	<script src="js/legends_fmc.js"></script>
-    <script src="layerslider/js/greensock.js"></script>
-    <script src="layerslider/js/layerslider.transitions.js"></script>
-    <script src="layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-    <script src="js/pgm_ajax.js"></script>
-	<script src="js/maps_functions_fmc.js" ></script>
-	<script src="firebase.js"></script>
-    <!--<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJxP8aoy2vg16BrnlszY7dsiypZ7pB84&libraries=geometry,places&language=el&callback=_initMap'></script>-->
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHoCTp3CGNODqzM8H8L9dTBBFtF55Em4&libraries=geometry,places&language=el&callback=_initMap'></script>
-    
-	<script src="js/custom.js"></script>
-	<!-- Rendering SyncFusion -- Start -->
-	<link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
-	<script src="lib/jquery/dist/jquery.js"></script>
-	<script src="lib/syncfusion-javascript/Scripts/ej/web/ej.web.all.min.js"></script>
-	<script src="lib/jsrender/jsrender.js"></script>	
-	<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-	<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-	<link href="https://cdn.syncfusion.com/16.3.0.21/js/web/responsive-css/ej.responsive.css" rel="stylesheet" />
-
-	<!-- Rendering SyncFusion -- End-->
+	<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHoCTp3CGNODqzM8H8L9dTBBFtF55Em4&libraries=geometry,places&language=el&callback=_initMap'></script>
 	
 	<script>
         $('body').on('myMapsLoaded', function () {

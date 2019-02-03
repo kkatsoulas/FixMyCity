@@ -9,6 +9,7 @@ var point_groups = [];
 var ajax_data = null;
 var marker;
 var address = '';
+var markersDB = [];
 
 function initAutocomplete() {
             
@@ -341,6 +342,72 @@ function placeMarker(location) {
     }
     
 }
+
+
+
+
+function placeDbMarker(location) {
+    var markerDB = null;
+	var icon = {
+        url: "/img/mine.png", // url
+        scaledSize: new google.maps.Size(25, 30), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(12.5, 29) // anchor
+    };
+    var in_municipality = false;
+    /*$.each(surfaces, function (i, surface) {
+        if (google.maps.geometry.poly.containsLocation(location, surface)) {
+            in_municipality = true;
+        }
+    });*/
+	var in_municipality = true;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+        latLng: location,
+        language: 'gr'
+    }, function (responses) {
+        if (responses && responses.length > 0) {
+            address = responses[0].formatted_address;
+            if (firebase.auth().currentUser) {
+                $('#address_container').removeClass('alert-danger').addClass('alert-success');
+                $('#address_container').html(address);
+                $('#address_container').show();
+            }
+            else {
+                $('#address_container').removeClass('alert-success').addClass('alert-danger');
+                $('#address_container').html(address + "<hr />" + "<b>Πρέπει να συνδεθείται</b>");
+                $('#address_container').show();
+            }
+        } else {
+            address = 'Απροσδιόριστη Διεύθυνση';
+        }
+    });
+    if (markerDB == null) {
+        markerDB = new google.maps.Marker({
+            position: location,
+            draggable: false,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            map: map
+        });
+        google.maps.event.addListener(markerDB, 'dragend', function (event) {
+            placeMarker(markerDB.getPosition());
+        });
+		markersDB.push(markerDB);
+		
+    } else { markerDB.setPosition(location); }
+    if (in_municipality && firebase.auth().currentUser)  {
+        $('.submit-container input').attr('disabled', null);
+        $('.submit-container select').attr('disabled', null);
+        $('.submit-container button').attr('disabled', null);
+    }
+    else {
+        $('.img_uploaded').hide();
+        $('.submit-container input').attr('disabled', 'disabled');
+        $('.submit-container select').attr('disabled', 'disabled');
+        $('.submit-container button').attr('disabled', 'disabled');
+    }
+    
+}
 $(document).ready(function () {
     $('.img_uploaded').hide();
     $('#address_container').hide();
@@ -484,6 +551,8 @@ function signin_submit(btn) {
 	  document.getElementById('quickstart-sign-in').textContent = 'Signed in as: ' + email;
 	  hideModal();
 	  $('#myModal2').modal('hide')
+	  $('body').removeClass('modal-open');
+	  $('.modal-backdrop').remove();
 }	
 
 

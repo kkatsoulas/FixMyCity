@@ -755,20 +755,22 @@ function confirmUpload() {
 		var downloadURL = uploadTask.snapshot.downloadURL;
 		var Category_txt = '';
 		var SubCategory_txt = '';
+		var SelCateg = $('#fmc_category').val();
+		var SelSubCateg = $('#subcategory' + $('#fmc_category').val()).val()
 		uploadTask.snapshot.ref.getDownloadURL().then(function (URL) {
 	   //getting the publication time
 			var dayObj = new Date();
 			var day = dayObj.getDate();
 			
 			for (var i = 0; i < categs.length; i++){
-				if (categs["id"] == $('#fmc_category').val()){
-					Category_txt = categs["text"];
+				if (categs[i]["id"] == SelCateg ){
+					Category_txt = categs[i]["text"];
 					//exit;
 				}
 			}
 			for (var i = 0; i < subcategs.length; i++){
-				if (subcategs["id"] == $('#subcategory' + $('#fmc_category').val()).val()){
-					SubCategory_txt = subcategs["text"];
+				if (subcategs[i]["id"] == SelSubCateg){
+					SubCategory_txt = subcategs[i]["text"];
 				}
 			}
 			alert($('#fmc_category').val());

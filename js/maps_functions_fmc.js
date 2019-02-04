@@ -1,6 +1,8 @@
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
+
+var api_url = 'http://glyfada.intelligentcity.gr/icityops/api.php';
 var map = null;
 var routes = [];
 var points = [];
@@ -10,6 +12,9 @@ var ajax_data = null;
 var marker;
 var address = '';
 var markersDB = [];
+
+var categs = [];
+var subcategs = [];
 
 function initAutocomplete() {
             
@@ -244,6 +249,7 @@ function initMap() {
         $("#stoixeia-katagrafis-map").css("height", "550px");
         $("#stoixeia-katagrafis-map").css("width", "100%");
     }
+	var subcategs_itm;
     resize_map();
     getAjaxData({
             op: 'get',
@@ -252,13 +258,19 @@ function initMap() {
             var html_input = "";
             var html_selects = "";
             $.each(response.data, function (index, option) {
+				subcategs_itm = { 'id': option.aID,
+								  'text': option.name };
+					categs.push(subcategs_itm);
                 html_input += "     <option value='" + option.aID + "'>" + option.name + "</option>";
                 html_selects += "   <div class='form-group subcategory_div' id='subcategory_div" + option.aID + "'>";
                 html_selects += "       <label class=''>*Υποκατηγορία</label>";
                 html_selects += "       <select id='subcategory" + option.aID + "' class='form-control'>";
                 html_selects += "           <option value=''></option>";
                 $.each(option.eidi, function (index2, eidos) {
-                    html_selects += "       <option value='" + eidos.eID + "'>" + eidos.text + "</option>";
+                    subcategs_itm = { 'id': eidos.eID,
+					'text': eidos.text };
+					subcategs.push(subcategs_itm);
+					html_selects += "       <option value='" + eidos.eID + "'>" + eidos.text + "</option>";
                 });
                 html_selects += "       </select>";
                 html_selects += "   </div>";
@@ -741,22 +753,34 @@ function confirmUpload() {
 			// Handle unsuccessful uploads
 		}, function() {
 		var downloadURL = uploadTask.snapshot.downloadURL;
-		
+		var Category_txt = '';
+		var SubCategory_txt = '';
 		uploadTask.snapshot.ref.getDownloadURL().then(function (URL) {
 	   //getting the publication time
 			var dayObj = new Date();
 			var day = dayObj.getDate();
-
-
+			
+			for (var i = 0; i < categs.length; i++){
+				if (categs["id"] == $('#fmc_category').val()){
+					Category_txt = categs["text"];
+					//exit;
+				}
+			}
+			for (var i = 0; i < subcategs.length; i++){
+				if (subcategs["id"] == $('#subcategory' + $('#fmc_category').val()).val()){
+					SubCategory_txt = subcategs["text"];
+				}
+			}
+			alert($('#fmc_category').val());
 			dbObjRef.child(PostsRootName).push({
 			CreatedBy: global_user.uid,
 			//Points: totalPoints[0],
 			lat: marker.getPosition().lat(),
 			lng: marker.getPosition().lng(),
 			ImageURL: URL,
-			Category: $('#fmc_category').val(),
-			SubCategory: $('#subcategory' + $('#fmc_category').val()).val(),
-			Story: $('#fmc_comment').val(),
+			Category: Category_txt,
+			SubCategory: SubCategory_txt,
+			Comment: $('#fmc_comment').val(),
 			Status: 'ΚΑΤΑΧΩΡΗΘΗΚΕ'
 			});
 

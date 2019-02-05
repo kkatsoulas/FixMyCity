@@ -602,13 +602,12 @@ function signup_submit(btn) {
           alert('The password is too weak.');
         } else if (errorMessage != null) {
           alert(errorMessage);
-        }else{
-			sendEmailVerification();
-		}
+        }
         console.log(error);
         // [END_EXCLUDE]
       });
       // [END createwithemail]
+	  sendEmailVerification();
 	  hideModal();
 }
 

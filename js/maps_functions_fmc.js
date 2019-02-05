@@ -2,7 +2,6 @@ function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
 
-var api_url = 'http://glyfada.intelligentcity.gr/icityops/api.php';
 var map = null;
 var routes = [];
 var points = [];
@@ -15,6 +14,95 @@ var markersDB = [];
 
 var categs = [];
 var subcategs = [];
+
+var categs2 = [];
+var subcategs2 = [];
+
+categs2.push({"id": 119, "text": "ΦΩΤΙΣΜΟΣ" });
+categs2.push({"id": 126, "text": "ΠΡΑΣΙΝΟΙ ΚΑΔΟΙ" });
+categs2.push({"id": 131, "text": "ΜΠΛΕ ΚΑΔΟΙ"});
+categs2.push({"id": 136, "text": "ΠΡΑΣΙΝΟ"});
+categs2.push({"id": 144, "text": "ΔΡΟΜΟΙ"});
+categs2.push({"id": 149, "text": "ΣΗΜΑΝΣΗ"});
+categs2.push({"id": 155, "text": "ΠΕΖΟΔΡΟΜΙΑ"});
+categs2.push({"id": 160, "text": "ΦΡΕΑΤΙΑ"});
+categs2.push({"id": 165, "text": "ΣΧΟΛΕΙΑ"});
+categs2.push({"id": 172, "text": "ΠΛΑΤΕΙΕΣ"});
+categs2.push({"id": 179, "text": "ΠΑΙΔΙΚΕΣ ΧΑΡΕΣ"});
+categs2.push({"id": 185, "text": "ΜΑΡΙΝΕΣ"});
+
+
+subcategs2.push({"cat": 119, "id": 120 , "text": "Καμμένος Λαμπτήρας" });
+subcategs2.push({"cat": 119, "id": 121 , "text": "Σπασμένο Φωτιστικό" });
+subcategs2.push({"cat": 119, "id": 122 , "text": "Σπασμένος Βραχίωνας" });
+subcategs2.push({"cat": 119, "id": 123 , "text": "Επικίνδυνη Κολώνα" });
+subcategs2.push({"cat": 119, "id": 124 , "text": "Ανεπαρκής Φωτισμός" });
+subcategs2.push({"cat": 119, "id": 125 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 126, "id": 127 , "text": "Χαλασμένος Πράσινος Κάδος" });
+subcategs2.push({"cat": 126, "id": 128 , "text": "Γεμάτος Πράσινος Κάδος" });
+subcategs2.push({"cat": 126, "id": 129 , "text": "Έλλειψη Πράσινου Κάδου" });
+subcategs2.push({"cat": 126, "id": 130 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 131, "id": 132 , "text": "Χαλασμένος Μπλε Κάδος" });
+subcategs2.push({"cat": 131, "id": 133 , "text": "Γεμάτος Μπλε Κάδος" });
+subcategs2.push({"cat": 131, "id": 134 , "text": "Έλλειψη Μπλε Κάδου" });
+subcategs2.push({"cat": 131, "id": 135 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 136, "id": 137 , "text": "Κομμένο Δέντρο" });
+subcategs2.push({"cat": 136, "id": 138 , "text": "Επικίνδυνο Δέντρο" });
+subcategs2.push({"cat": 136, "id": 139 , "text": "Κατεστραμμένος Χλοοτάπητας" });
+subcategs2.push({"cat": 136, "id": 140 , "text": "Κατεστραμμένα Άνθη" });
+subcategs2.push({"cat": 136, "id": 141 , "text": "Ανάγκη Κλαδέματος" });
+subcategs2.push({"cat": 136, "id": 142 , "text": "Ανάγκη Ψεκασμού" });
+subcategs2.push({"cat": 136, "id": 143 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 144, "id": 145 , "text": "Λακκούβα" });
+subcategs2.push({"cat": 144, "id": 146 , "text": "Ολισθηρό Έδαφος" });
+subcategs2.push({"cat": 144, "id": 147 ,"text":  "Αντικείμενο που Εμποδίζει" });
+subcategs2.push({"cat": 144, "id": 148 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 149, "id": 150 , "text": "Σπασμένη Πινακίδα" });
+subcategs2.push({"cat": 149, "id": 151 , "text": "Φθαρμένη Πινακίδα" });
+subcategs2.push({"cat": 149, "id": 152 , "text": "Μη Ευδιάκριτη Πινακίδα" });
+subcategs2.push({"cat": 149, "id": 153 , "text": "Έλλειψη Πινακίδας" });
+subcategs2.push({"cat": 149, "id": 154 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 155, "id": 156 , "text": "Ολισθηρό Έδαφος" });
+subcategs2.push({"cat": 155, "id": 157 , "text": "Σπασμένες Πλάκες" });
+subcategs2.push({"cat": 155, "id": 158 , "text": "Αντικείμενο που Εμποδίζει" });
+subcategs2.push({"cat": 155, "id": 159 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 160, "id": 161 , "text": "Σπασμένο Φρεάτιο" });
+subcategs2.push({"cat": 160, "id": 162 , "text": "Βουλωμένο Φρεάτιο" });
+subcategs2.push({"cat": 160, "id": 163 , "text": "Φρεάτιο με Οσμές" });
+subcategs2.push({"cat": 160, "id": 164 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 165, "id": 166 , "text": "Κατεστραμμένα Κάγκελα" });
+subcategs2.push({"cat": 165, "id": 167 , "text": "Σπασμένο Τζάμι" });
+subcategs2.push({"cat": 165, "id": 168 , "text": "Ελλειπής Φωτισμός" });
+subcategs2.push({"cat": 165, "id": 169 , "text": "Ακατάλληλος Προαύλιος Χώρος" });
+subcategs2.push({"cat": 165, "id": 170 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 172, "id": 171 , "text": "Υδραυλικά" });
+subcategs2.push({"cat": 172, "id": 173 , "text": "Σπασμένο Παγκάκι" });
+subcategs2.push({"cat": 172, "id": 174 , "text": "Κατεστραμμένο Κάγκελο" });
+subcategs2.push({"cat": 172, "id": 175 , "text": "Φθαρμένο Έδαφος" });
+subcategs2.push({"cat": 172, "id": 176 , "text": "Ελλειπής Φωτισμός" });
+subcategs2.push({"cat": 172, "id": 177 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 179, "id": 178 , "text": "Σπασμένο Όργανο Γυμναστικής" });
+subcategs2.push({"cat": 179, "id": 180 , "text": "Σπασμένο Όργανο" });
+subcategs2.push({"cat": 179, "id": 181 , "text": "Κατεστραμμένη Περίφραξη" });
+subcategs2.push({"cat": 179, "id": 182 , "text": "Φθαρμένο Έδαφος" });
+subcategs2.push({"cat": 179, "id": 183 , "text": "Ελλειπής Φωτισμός" });
+subcategs2.push({"cat": 179, "id": 184 , "text": "Άλλο" });
+
+subcategs2.push({"cat": 185, "id": 186 , "text": "Φθαρμένα Σημεία Πρόσδεσης" });
+subcategs2.push({"cat": 185, "id": 187 , "text": "Έλλειψη Νερού" });
+subcategs2.push({"cat": 185, "id": 188 , "text": "Έλλειψη Ηλεκτρικού Ρεύματος" });
+subcategs2.push({"cat": 185, "id": 189 , "text": "Άλλο" });
+
 
 function initAutocomplete() {
             
@@ -168,56 +256,7 @@ function _initMap()
         
     });
 
-    /*$.ajax({
-        method: 'post',
-        url: api_url,
-        data: { op: 'get', item: 'fmc-oria-dimou' },
-        dataType: 'json',
-        success: function (response) {
-            var resize_map = function () {
-                $('#map-container').css('height', '500px');
-                $("#stoixeia-katagrafis-map").css("height", "550px");
-                $("#stoixeia-katagrafis-map").css("width", "100%");
-            }
-            resize_map();
-            window.removeEventListener("resize", resize_map);
-            window.addEventListener("resize", resize_map);
-            var center = false;
-            
-            var boundbox = new google.maps.LatLngBounds();
-            if (response.status === 'success') {
-                data = response.data;
-                $.each(data, function (i, d) {
-                    var markers = [];
-                    $.each(d, function (ii, o) {
-                        var m = new google.maps.LatLng(o.lat, o.lng);
-                        markers[ii] = m;
-                        boundbox.extend(m);
-                    });
-                    var surface = new google.maps.Polygon({
-                        paths: markers,
-                        geodesic: true,
-                        fillColor: '#ef662f',
-                        fillOpacity: 0.2,
-                        strokeWeight: 2,
-                        strokeColor: '#ef662f',
-                        strokeOpacity: 0.4,
 
-                    });
-                    surface.setMap(map);
-                    surfaces[i] = surface;
-                    google.maps.event.addListener(surface, 'click', function (event) {
-
-                        placeMarker(event.latLng);
-
-                    });
-                });
-                map.fitBounds(boundbox);
-                map.setCenter(boundbox.getCenter());
-                initAutocomplete();
-            }
-        }
-    });*/
 
 	
 	//kkats
@@ -243,6 +282,7 @@ function _initMap()
     });
 }
 
+
 function initMap() {
     var resize_map = function () {
         $('#mapContainer').css('height', '550px');
@@ -251,42 +291,45 @@ function initMap() {
     }
 	var subcategs_itm;
     resize_map();
-    getAjaxData({
-            op: 'get',
-            item: 'fmc-typoi-anaforas'
-        }, function (response) {
-            var html_input = "";
-            var html_selects = "";
-            $.each(response.data, function (index, option) {
-				subcategs_itm = { 'id': option.aID,
-								  'text': option.name };
-					categs.push(subcategs_itm);
-                html_input += "     <option value='" + option.aID + "'>" + option.name + "</option>";
-                html_selects += "   <div class='form-group subcategory_div' id='subcategory_div" + option.aID + "'>";
-                html_selects += "       <label class=''>*Υποκατηγορία</label>";
-                html_selects += "       <select id='subcategory" + option.aID + "' class='form-control'>";
-                html_selects += "           <option value=''></option>";
-                $.each(option.eidi, function (index2, eidos) {
-                    subcategs_itm = { 'id': eidos.eID,
-					'text': eidos.text };
-					subcategs.push(subcategs_itm);
-					html_selects += "       <option value='" + eidos.eID + "'>" + eidos.text + "</option>";
-                });
-                html_selects += "       </select>";
-                html_selects += "   </div>";
-            });
-            $('#fmc_category').html(html_input);
-            $('#subcategories').html(html_selects);
-            $('.subcategory_div').hide();
-            $('#fmc_category').change(function () {
-                $('.subcategory_div').hide();
-                $('#subcategory_div' + $(this).val()).show();
-            });
-            $('#fmc_category').change();
-            $('.submit-container input').attr('disabled', 'disabled');
-            $('.submit-container select').attr('disabled', 'disabled');
-            $('.submit-container button').attr('disabled', 'disabled');
-        }, api_url);
+	var html_input = "";
+	var html_selects = "";
+	for(var i=0;i<categs2.length;i++){
+		subcategs_itm = { 'id': categs2[i].id,
+						  'text': categs2[i].text };
+			categs.push(subcategs_itm);
+		html_input += "     <option value='" + categs2[i].id + "'>" + categs2[i].text + "</option>";
+		html_selects += "   <div class='form-group subcategory_div' id='subcategory_div" + categs2[i].id + "'>";
+		html_selects += "       <label class=''>*Υποκατηγορία</label>";
+		html_selects += "       <select id='subcategory" + categs2[i].id + "' class='form-control'>";
+		html_selects += "           <option value=''></option>";
+		for(var j=0;j<subcategs2.length;j++){
+			if (subcategs2[j].cat == categs2[i].id){
+				subcategs_itm = { 'id': subcategs2[j].id,
+				'text': subcategs2[j].text };
+				subcategs.push(subcategs_itm);
+				html_selects += "       <option value='" + subcategs2[j].id + "'>" + subcategs2[j].text + "</option>";
+		
+			}
+		}
+		html_selects += "       </select>";
+		html_selects += "   </div>";
+	}
+	/*$.each(response.data, function (index, option) {
+		$.each(option.eidi, function (index2, eidos) {
+			});
+		
+	});*/
+	$('#fmc_category').html(html_input);
+	$('#subcategories').html(html_selects);
+	$('.subcategory_div').hide();
+	$('#fmc_category').change(function () {
+		$('.subcategory_div').hide();
+		$('#subcategory_div' + $(this).val()).show();
+	});
+	$('#fmc_category').change();
+	$('.submit-container input').attr('disabled', 'disabled');
+	$('.submit-container select').attr('disabled', 'disabled');
+	$('.submit-container button').attr('disabled', 'disabled');
 		
 		google.maps.event.addListener(map, 'click', function (event) {
 			placeMarker(event.latLng);
@@ -477,43 +520,12 @@ function fmc_submit(btn) {
         $('#error-message').slideDown(500).delay(2500).slideUp(500);
         return false;
     }
-    /*var addr = address;
-    formData.append("op", "add");
-    formData.append('item', 'fmc-user-report');
-    formData.append("typos", $('#fmc_category').val());
-    formData.append("eidos", $('#subcategory' + $('#fmc_category').val()).val());
-    formData.append("onoma", $('#fmc_name').val());
-    formData.append("eponimo", $('#fmc_surname').val());
-    formData.append("email", $('#fmc_email').val());
-    formData.append("addr", addr);
-    formData.append("tel", $('#fmc_phone').val());
-    formData.append("minima", $('#fmc_comment').val());
-    formData.append('lat', marker.getPosition().lat());
-    formData.append('lng', marker.getPosition().lng());
-    var files = $("#file_input").get(0).files;
 
-    for (var i = 0; i < $("#file_input").get(0).files.length; i++) {
-        formData.append('user_report_image', files[i]);
-    }*/
     $this = $(btn);
     $this.attr("disabled", "disabled");
 	
 	confirmUpload();
-    /*getAjaxFormData(
-        formData
-        , function (response) {
 
-            $this.attr("disabled", null);
-
-            if (response.statustext == "error") {
-                show_error(response.data);
-                return false;
-            } else {
-                show_success(response.data.pID);
-                return false;
-            }
-        }, api_url);
-		*/
 }
 
 function signin_submit(btn) {
@@ -719,18 +731,7 @@ function confirmUpload() {
 				'longitude': marker.getPosition().lng()
 			},
 		};
-		/*formData.append("op", "add");
-		formData.append('item', 'fmc-user-report');
-		formData.append("typos", $('#fmc_category').val());
-		formData.append("eidos", $('#subcategory' + $('#fmc_category').val()).val());
-		formData.append("onoma", $('#fmc_name').val());
-		formData.append("eponimo", $('#fmc_surname').val());
-		formData.append("email", $('#fmc_email').val());
-		formData.append("addr", addr);
-		formData.append("tel", $('#fmc_phone').val());
-		formData.append("minima", $('#fmc_comment').val());
-		formData.append('lat', marker.getPosition().lat());
-		formData.append('lng', marker.getPosition().lng());*/
+
 		
 		var files = $("#file_input").get(0).files;
 
@@ -763,12 +764,17 @@ function confirmUpload() {
 			var day = dayObj.getDate();
 			
 			for (var i = 0; i < categs.length; i++){
+				
+				//console.log(categs[i]["id"], " ", categs[i]["text"]);
 				if (categs[i]["id"] == SelCateg ){
 					Category_txt = categs[i]["text"];
+					
 					//exit;
 				}
 			}
 			for (var i = 0; i < subcategs.length; i++){
+				console.log('categs2.push({"id":', subcategs[i]["id"], ", ", subcategs[i]["text"], '});');
+				
 				if (subcategs[i]["id"] == SelSubCateg){
 					SubCategory_txt = subcategs[i]["text"];
 				}

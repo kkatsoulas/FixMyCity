@@ -600,7 +600,7 @@ function signup_submit(btn) {
         // [START_EXCLUDE]
         if (errorCode == 'auth/weak-password') {
           alert('The password is too weak.');
-        } else if errorMessage != null {
+        } else if (errorMessage != null) {
           alert(errorMessage);
         }else{
 			sendEmailVerification();

@@ -765,7 +765,6 @@ function confirmUpload() {
 			
 			for (var i = 0; i < categs.length; i++){
 				
-				//console.log(categs[i]["id"], " ", categs[i]["text"]);
 				if (categs[i]["id"] == SelCateg ){
 					Category_txt = categs[i]["text"];
 					
@@ -773,13 +772,10 @@ function confirmUpload() {
 				}
 			}
 			for (var i = 0; i < subcategs.length; i++){
-				console.log('categs2.push({"id":', subcategs[i]["id"], ", ", subcategs[i]["text"], '});');
-				
 				if (subcategs[i]["id"] == SelSubCateg){
 					SubCategory_txt = subcategs[i]["text"];
 				}
 			}
-			alert($('#fmc_category').val());
 			dbObjRef.child(PostsRootName).push({
 			CreatedBy: global_user.uid,
 			//Points: totalPoints[0],

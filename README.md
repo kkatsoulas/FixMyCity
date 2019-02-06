@@ -11,4 +11,4 @@ Application contains the following services:
 
 For access to these services you must:
 * Sign up with your e-mail.
-* Register your email though the link you will receive
+* Register your email though the link you will receive.

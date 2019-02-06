@@ -761,8 +761,7 @@ function confirmUpload() {
 		var SelSubCateg = $('#subcategory' + $('#fmc_category').val()).val()
 		uploadTask.snapshot.ref.getDownloadURL().then(function (URL) {
 	   //getting the publication time
-			var dayObj = new Date();
-			var dd = dayObj.getDate();
+			var today = new Date();
 			var dd = today.getDate();
 			var mm = today.getMonth() + 1; //January is 0!
 
@@ -843,12 +842,12 @@ function GetAll() {
 							};
 							
 				if (childData["RequestID"] === undefined){
-					gridLine["RequestID"] = '';}
+					gridLine["RequestID"] = key;}
 				else{
 					gridLine["RequestID"] = childData["Category"];}
 					
 				if (childData["RequestDate"] === undefined){
-					gridLine["RequestDate"] = key;}
+					gridLine["RequestDate"] = childData["RequestDate"];}
 				else{
 					var date_txt = childData["RequestDate"];//12/01/2019
 					/*var yyyy = date_txt.substring(5, 10);

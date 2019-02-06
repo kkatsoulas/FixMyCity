@@ -790,7 +790,7 @@ function confirmUpload() {
 			}
 			dbObjRef.child(PostsRootName).push({
 			CreatedBy: global_user.uid,
-			RequestDate: today
+			RequestDate: today,
 			//Points: totalPoints[0],
 			lat: marker.getPosition().lat(),
 			lng: marker.getPosition().lng(),

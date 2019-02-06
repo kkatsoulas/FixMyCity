@@ -14,4 +14,4 @@ For access to these services you must:
 * Register your email though the link you will receive.
 
 Application screenshot:
-![εικονα](/screeshots/screenshot.png)
+![εικονα](/screenshots/screenshot.png)

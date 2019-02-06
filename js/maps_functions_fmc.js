@@ -762,7 +762,18 @@ function confirmUpload() {
 		uploadTask.snapshot.ref.getDownloadURL().then(function (URL) {
 	   //getting the publication time
 			var dayObj = new Date();
-			var day = dayObj.getDate();
+			var dd = dayObj.getDate();
+			var dd = today.getDate();
+			var mm = today.getMonth() + 1; //January is 0!
+
+			var yyyy = today.getFullYear();
+			if (dd < 10) {
+			  dd = '0' + dd;
+			} 
+			if (mm < 10) {
+			  mm = '0' + mm;
+			} 
+			var today = dd + '/' + mm + '/' + yyyy;
 			
 			for (var i = 0; i < categs.length; i++){
 				
@@ -779,6 +790,7 @@ function confirmUpload() {
 			}
 			dbObjRef.child(PostsRootName).push({
 			CreatedBy: global_user.uid,
+			RequestDate: today
 			//Points: totalPoints[0],
 			lat: marker.getPosition().lat(),
 			lng: marker.getPosition().lng(),
@@ -786,6 +798,7 @@ function confirmUpload() {
 			Category: Category_txt,
 			SubCategory: SubCategory_txt,
 			Comment: $('#fmc_comment').val(),
+			Address: address,
 			Status: 'ΚΑΤΑΧΩΡΗΘΗΚΕ'
 			});
 
@@ -803,8 +816,7 @@ function confirmUpload() {
 }
 
 
-	function GetAll() {
-
+function GetAll() {
 
 	var myObj = new Object();
 
@@ -836,7 +848,7 @@ function confirmUpload() {
 					gridLine["RequestID"] = childData["Category"];}
 					
 				if (childData["RequestDate"] === undefined){
-					gridLine["RequestDate"] = '';}
+					gridLine["RequestDate"] = key;}
 				else{
 					var date_txt = childData["RequestDate"];//12/01/2019
 					/*var yyyy = date_txt.substring(5, 10);
